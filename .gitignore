@@ -1,4 +1,6 @@
 .DS_Store
-lib/node_modules
 lib/package.json
 dist/app.js
+lib/node_modules
+lib/.sass-cache
+.vscode/

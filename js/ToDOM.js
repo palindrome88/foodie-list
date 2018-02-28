@@ -4,6 +4,7 @@ let fetchesFood = require("./food-promises");
 
 let loadCards = document.getElementById("list-of-restaurants");
 let loadCardsCitiesSet = document.getElementById("list-of-cities");
+let testMe = document.getElementById("testme");
 
 let container = [{}];
 let container2 = [{}];
@@ -67,57 +68,39 @@ function getCities(){
                     loadCardsCitiesSet.innerHTML += `<option value="${container3[u].city}" id="select-${u}">
                     ${container3[u].city}
                     </option>`;
-
                 }
-            }
 
-            let option1 = document.getElementById("select-1").addEventListener('change', function(){
-                selectCities(1);
-            });
-            let option2 = document.getElementById("select-2").addEventListener('change', function(){
-                selectCities(2);
-            });
-            let option3 = document.getElementById("select-3").addEventListener('change', function(){
-                selectCities(3);
-            });
-            let option4 = document.getElementById("select-4").addEventListener('change', function(){
-                selectCities(4);
-            });
-            let option5 = document.getElementById("select-5").addEventListener('change', function(){
-                selectCities(5);
-            });
-            let option6 = document.getElementById("select-6").addEventListener('change', function(){
-                selectCities(6);            
-            });
-            let option7 = document.getElementById("select-7").addEventListener('change', function(){
-                selectCities(7);
-            });
-            let option8 = document.getElementById("select-8").addEventListener('change', function(){
-                selectCities(8);
-            });
-            let option9 = document.getElementById("select-9").addEventListener('change', function(){
-                selectCities(9);
-            });
-            let option10 = document.getElementById("select-10").addEventListener('change', function(){
-                selectCities(10);
-            });
-            let option11 = document.getElementById("select-11").addEventListener('change', function(){
-                selectCities(11);
-            });
-            
-        },
+                document.querySelector('select[name="list"]').onchange=changeEventHandler;
+         
+        }
+    },
         (reject)=>{
 
-
+            console.log("ERROR, for fetchCities() in getCities() scope.");
         }
         
     );
 
 }
 
+
+// SUPER IMPORTANT LESSON LEARNED HERE.
+function changeEventHandler(event) {
+    // You can use “this” to refer to the selected element.
+    if(!event.target.value) {console.log('Please Select One');}
+    else  {
+        let str = `${event.target.value}`;
+        console.log("It is working though:" + event.target.value);
+        console.log(str);
+        testMe.innerHTML += str + "</br>";
+
+        selectCities(str);
+ }
+}
+
 function selectCities(city){
     switch (city){
-        case 0: /// Itupeva
+        case "Itupeva":
             console.log("Itupeva is selected.");
             for (var t0 in container2){
 
@@ -125,28 +108,27 @@ function selectCities(city){
                 for(var u0 in container3){
                     if (container3[u0].id === 0){
                     console.log(container3[u0].city);
-                    loadCardsCitiesSet.innerHTML += `<option value="${container3[u0].city}" onselect="printToDOM.getCities(city)">
+                    testMe.innerHTML += `<option value="${container3[u0].city}" onselect="printToDOM.getCities(city)">
                     ${container3[u0].city}
                     </option>`;
                     }
                 }
             }  
             break;
-        case 1: //Changsheng
+        case "Changsheng":
             console.log("Changsheng is selected.");
             for (var t1 in container2){
                 let container3 = container2[t1];
                 for(var u1 in container3){
                     if (container3[u1].id === 1){
-                    console.log(container3[u1].city);
-                    loadCardsCitiesSet.innerHTML += `<option value="${container3[u1].city}" onselect="printToDOM.getCities(city)">
+                    testMe.innerHTML += `<option value="${container3[u1].city}" onselect="printToDOM.getCities(city)">
                     ${container3[u1].city}
                     </option>`;
                     }
                 }
             } 
             break;
-        case 3: /// Mingelchaur
+        case "Mingelchaur":
             for (var t3 in container2){
 
                 let container3 = container2[t3];
@@ -160,7 +142,7 @@ function selectCities(city){
                 }
             }
             break;
-        case 4: /// Bigoudine
+        case "Bigoudine":
             for (var t4 in container2){
 
                 let container3 = container2[t4];
@@ -174,7 +156,7 @@ function selectCities(city){
                 }
             }
             break;
-        case 5: ///La Soledad
+        case "La Soledad":
             for (var t5 in container2){
 
                 let container3 = container2[t5];
@@ -188,7 +170,7 @@ function selectCities(city){
                 }
             }
             break;
-        case 6: /// Shengshan
+        case "Shengshan":
             for (var t6 in container2){
 
                 let container3 = container2[t6];
@@ -202,7 +184,7 @@ function selectCities(city){
                 }
             }
             break;
-        case 7: /// Nashville
+        case "Nashville":
         for (var t7 in container2){
 
             let container3 = container2[t7];
@@ -216,7 +198,7 @@ function selectCities(city){
             }
         }
             break;
-        case 8: /// Rabat
+        case "Rabat":
         for (var t8 in container2){
 
             let container3 = container2[t8];
@@ -230,7 +212,7 @@ function selectCities(city){
             }
         }
             break;
-        case 9: /// Hamilton
+        case "Hamilton":
             for (var t9 in container2){
 
                 let container3 = container2[t9];
@@ -244,7 +226,7 @@ function selectCities(city){
                 }
             }
             break;
-        case 10: // El Llano
+        case "El Llano":
             for (var t10 in container2){
 
                 let container3 = container2[t10];
@@ -258,7 +240,7 @@ function selectCities(city){
                 }
             }
             break;  
-        case 11: // Longwu
+        case "Longwu":
             for (var t11 in container2){
 
                 let container3 = container2[t11];

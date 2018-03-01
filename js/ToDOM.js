@@ -8,7 +8,13 @@ let loadCardsCitiesSet2 = document.getElementById("add-restaurant");
 let testMe = document.getElementById("testme");
 let rests = document.getElementById("found-rests");
 //Form Data
-var formData;
+var formRestaurant;
+var formDateVisited;
+var formMyRating;
+
+// ---
+let count = 33;
+let cityID;
 
 
 
@@ -70,7 +76,7 @@ function getCities(){
             for (var t in cityContainer1){
                 cityContainer2 = cityContainer1[t];
                 for(var u in cityContainer2){
-                    console.log(cityContainer2[u].id);
+                    
                     // -- First SELECT statement of cities
                     loadCardsCitiesSet.innerHTML += `<option value="${cityContainer2[u].city}" id="select-${u}">
                     ${cityContainer2[u].city}
@@ -117,41 +123,256 @@ function changeEventHandler2(event){
 function selectCitiesID(city){
     switch (city){
         case "Itupeva":
-        console.log(`${city} in selectCitiesID() was selected`);
-        formData = new FormData(document.querySelector('form'));
-        console.log(formData);
+        count++;
+        cityID = 1;
+        formRestaurant = document.forms[0].elements[0].value;
+        formDateVisited = document.forms[0].elements[1].value;
+        formMyRating = document.forms[0].elements[2].value;
+        insideContainer.push(
+            {
+                'id' : count, 
+                'restaurant' : formRestaurant, 
+                'city_id' :cityID, 
+                'date_visited' : formDateVisited, 
+                'my_rating' : formMyRating
+            });
+        for (var cc1 = 0 ; cc1 < insideContainer.length; cc1++)
+            console.log(`PUSHED IN: ${insideContainer[cc1].restaurant}`);
             break;
         case "Changsheng":
-        console.log(`${city} in selectCitiesID() was selected`);
-        formData = new FormData(document.querySelector('form'));
+        loadCards.innerHTML = " ";
+        count++;
+        cityID = 2;
+        formRestaurant = document.forms[0].elements[0].value;
+        formDateVisited = document.forms[0].elements[1].value;
+        formMyRating = document.forms[0].elements[2].value;
+        insideContainer.push(
+            {
+                'id' : count, 
+                'restaurant' : formRestaurant, 
+                'city_id' :cityID, 
+                'date_visited' : formDateVisited, 
+                'my_rating' : formMyRating
+            });
+        for (var cc2 = 0 ; cc2 < insideContainer.length; cc2++){
+            loadCards.innerHTML += `<div class = "card"> 
+            Id: ${insideContainer[cc2].id}</br>
+            Restarant: ${insideContainer[cc2].restaurant} </br>
+            Rating: ${insideContainer[cc2].my_rating} </br> 
+            </br>
+            </div>`;
+    }
             break;
-        case "Mingelchaur":
-        console.log(`${city} in selectCitiesID() was selected`);
-        formData = new FormData(document.querySelector('form'));
+        case "Mingelchaur": 
+        count++;
+        cityID = 3;
+        formRestaurant = document.forms[0].elements[0].value;
+        formDateVisited = document.forms[0].elements[1].value;
+        formMyRating = document.forms[0].elements[2].value;
+        insideContainer.push(
+            {
+                'id' : count, 
+                'restaurant' : formRestaurant, 
+                'city_id' :cityID, 
+                'date_visited' : formDateVisited, 
+                'my_rating' : formMyRating
+            });
+        for (var cc3 = 0 ; cc3 < insideContainer.length; cc3++){
+            loadCards.innerHTML += `<div class = "card"> 
+            Id: ${insideContainer[cc3].id}</br>
+            Restarant: ${insideContainer[cc3].restaurant} </br>
+            Rating: ${insideContainer[cc3].my_rating} </br> 
+            </br>
+            </div>`;
+    }
             break;
         case "Bigoudine":
-        console.log(`${city} in selectCitiesID() was selected`);
+        count++;
+        cityID = 4;
+        formRestaurant = document.forms[0].elements[0].value;
+        formDateVisited = document.forms[0].elements[1].value;
+        formMyRating = document.forms[0].elements[2].value;
+        insideContainer.push(
+            {
+                'id' : count, 
+                'restaurant' : formRestaurant, 
+                'city_id' :cityID, 
+                'date_visited' : formDateVisited, 
+                'my_rating' : formMyRating
+            });
+        for (var cc4 = 0 ; cc4 < insideContainer.length; cc4++)
+            loadCards.innerHTML += `<div class = "card"> 
+            Id: ${insideContainer[cc4].id}</br>
+            Restarant: ${insideContainer[cc4].restaurant} </br>
+            Rating: ${insideContainer[cc4].my_rating} </br> 
+            </br>
+            </div>`;
             break;
         case "La Soledad":
-        console.log(`${city} in selectCitiesID() was selected`);
+        count++;
+        cityID = 5;
+        formRestaurant = document.forms[0].elements[0].value;
+        formDateVisited = document.forms[0].elements[1].value;
+        formMyRating = document.forms[0].elements[2].value;
+        insideContainer.push(
+            {
+                'id' : count, 
+                'restaurant' : formRestaurant, 
+                'city_id' :cityID, 
+                'date_visited' : formDateVisited, 
+                'my_rating' : formMyRating
+            });
+        for (var cc5 = 0 ; cc5 < insideContainer.length; cc5++){
+            loadCards.innerHTML += `<div class = "card"> 
+            Id: ${insideContainer[cc5].id}</br>
+            Restarant: ${insideContainer[cc5].restaurant} </br>
+            Rating: ${insideContainer[cc5].my_rating} </br> 
+            </br>
+            </div>`;
+        }
+
             break;
         case "Shengshan":
-    
+        count++;
+        cityID = 6;
+        formRestaurant = document.forms[0].elements[0].value;
+        formDateVisited = document.forms[0].elements[1].value;
+        formMyRating = document.forms[0].elements[2].value;
+        insideContainer.push(
+            {
+                'id' : count, 
+                'restaurant' : formRestaurant, 
+                'city_id' :cityID, 
+                'date_visited' : formDateVisited, 
+                'my_rating' : formMyRating
+            });
+        for (var cc6 = 0 ; cc6 < insideContainer.length; cc6++){
+            loadCards.innerHTML += `<div class = "card"> 
+            Id: ${insideContainer[cc6].id}</br>
+            Restarant: ${insideContainer[cc6].restaurant} </br>
+            Rating: ${insideContainer[cc6].my_rating} </br> 
+            </br>
+            </div>`;
+    }
             break;
         case "Nashville":
-        
+        count++;
+        cityID = 7;
+        formRestaurant = document.forms[0].elements[0].value;
+        formDateVisited = document.forms[0].elements[1].value;
+        formMyRating = document.forms[0].elements[2].value;
+        insideContainer.push(
+            {
+                'id' : count, 
+                'restaurant' : formRestaurant, 
+                'city_id' :cityID, 
+                'date_visited' : formDateVisited, 
+                'my_rating' : formMyRating
+            });
+        for (var cc7 = 0 ; cc7 < insideContainer.length; cc7++)
+            {
+                loadCards.innerHTML += `<div class = "card"> 
+            Id: ${insideContainer[cc7].id}</br>
+            Restarant: ${insideContainer[cc7].restaurant} </br>
+            Rating: ${insideContainer[cc7].my_rating} </br> 
+            </br>
+            </div>`;
+        }
             break;
         case "Rabat":
-        
+        count++;
+        cityID = 8;
+        formRestaurant = document.forms[0].elements[0].value;
+        formDateVisited = document.forms[0].elements[1].value;
+        formMyRating = document.forms[0].elements[2].value;
+        insideContainer.push(
+            {
+                'id' : count, 
+                'restaurant' : formRestaurant, 
+                'city_id' :cityID, 
+                'date_visited' : formDateVisited, 
+                'my_rating' : formMyRating
+            });
+        for (var cc8 = 0 ; cc8 < insideContainer.length; cc8++){
+            loadCards.innerHTML += `<div class = "card"> 
+            Id: ${insideContainer[cc8].id}</br>
+            Restarant: ${insideContainer[cc8].restaurant} </br>
+            Rating: ${insideContainer[cc8].my_rating} </br> 
+            </br>
+            </div>`;
+        }
             break;
         case "Hamilton":
-        
+        count++;
+        cityID = 9;
+        formRestaurant = document.forms[0].elements[0].value;
+        formDateVisited = document.forms[0].elements[1].value;
+        formMyRating = document.forms[0].elements[2].value;
+        insideContainer.push(
+            {
+                'id' : count, 
+                'restaurant' : formRestaurant, 
+                'city_id' :cityID, 
+                'date_visited' : formDateVisited, 
+                'my_rating' : formMyRating
+            });
+        for (var cc9 = 0 ; cc9 < insideContainer.length; cc9++)
+            {
+                loadCards.innerHTML += `<div class = "card"> 
+            Id: ${insideContainer[cc9].id}</br>
+            Restarant: ${insideContainer[cc9].restaurant} </br>
+            Rating: ${insideContainer[cc9].my_rating} </br> 
+            </br>
+            </div>`;
+            }
             break;
         case "El Llano":
-        
+        count++;
+        cityID = 10;
+        formRestaurant = document.forms[0].elements[0].value;
+        formDateVisited = document.forms[0].elements[1].value;
+        formMyRating = document.forms[0].elements[2].value;
+        insideContainer.push(
+            {
+                'id' : count, 
+                'restaurant' : formRestaurant, 
+                'city_id' :cityID, 
+                'date_visited' : formDateVisited, 
+                'my_rating' : formMyRating
+            });
+        for (var cc10 = 0 ; cc10 < insideContainer.length; cc10++)
+            {
+                loadCards.innerHTML += `<div class = "card"> 
+            Id: ${insideContainer[cc10].id}</br>
+            Restarant: ${insideContainer[cc10].restaurant} </br>
+            Rating: ${insideContainer[cc10].my_rating} </br> 
+            </br>
+            </div>`;
+            }
             break;  
         case "Longwu":
-        
+        count++;
+        cityID = 11;
+        formRestaurant = document.forms[0].elements[0].value;
+        formDateVisited = document.forms[0].elements[1].value;
+        formMyRating = document.forms[0].elements[2].value;
+        insideContainer.push(
+            {
+                'id' : count, 
+                'restaurant' : formRestaurant, 
+                'city_id' :cityID, 
+                'date_visited' : formDateVisited, 
+                'my_rating' : formMyRating
+            });
+        for (var cc11 = 0 ; cc11 < insideContainer.length; cc11++)
+            {
+                loadCards.innerHTML += `<div class = "card"> 
+                Id: ${insideContainer[cc11].id}</br>
+                Restarant: ${insideContainer[cc11].restaurant} </br>
+                Rating: ${insideContainer[cc11].my_rating} </br> 
+                </br>
+                </div>`;
+            }
             break;
         default:
             break;
@@ -290,4 +511,4 @@ function selectCities(city){
 
 
 
-module.exports = {getRestaurants, getCities, selectCities};
+module.exports = {getRestaurants, getCities, selectCities, selectCitiesID};

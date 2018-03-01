@@ -4,8 +4,14 @@ let fetchesFood = require("./food-promises");
 
 let loadCards = document.getElementById("list-of-restaurants");
 let loadCardsCitiesSet = document.getElementById("list-of-cities");
+let loadCardsCitiesSet2 = document.getElementById("add-restaurant");
 let testMe = document.getElementById("testme");
 let rests = document.getElementById("found-rests");
+//Form Data
+var formData;
+
+
+
 // City Containers
 let cityContainer1 = [{}];
 let cityContainer2 =[{}];
@@ -33,7 +39,7 @@ function getRestaurants(){
                 count++;
                 for (let cnt in insideContainer){
                     //-----------------------------------------
-                    console.log(insideContainer[cnt]);
+                    
                     sortable.push([insideContainer[cnt], insideContainer[cnt].my_rating]);
                     sortable.sort(function (a, b){
                         return a[1] - b[1];
@@ -65,11 +71,18 @@ function getCities(){
                 cityContainer2 = cityContainer1[t];
                 for(var u in cityContainer2){
                     console.log(cityContainer2[u].id);
+                    // -- First SELECT statement of cities
                     loadCardsCitiesSet.innerHTML += `<option value="${cityContainer2[u].city}" id="select-${u}">
+                    ${cityContainer2[u].city}
+                    </option>`;
+
+                    // -- Second SELECT statement of cities
+                    loadCardsCitiesSet2.innerHTML += `<option value="${cityContainer2[u].city}" id="select-${u}">
                     ${cityContainer2[u].city}
                     </option>`;
                 }
                 document.querySelector('select[name="list"]').onchange=changeEventHandler;
+                document.querySelector('select[name="add-restaurant"]').onchange=changeEventHandler2;
         }
     },
         (reject)=>{
@@ -90,6 +103,60 @@ function changeEventHandler(event) {
  }
 }
 
+function changeEventHandler2(event){
+    if(!event.target.value){
+        console.log('Please select one.');
+    }
+    else {
+        // Put event value into an array
+        //
+        let str2 = `${event.target.value}`;
+        let id = selectCitiesID(str2); 
+    }
+}
+function selectCitiesID(city){
+    switch (city){
+        case "Itupeva":
+        console.log(`${city} in selectCitiesID() was selected`);
+        formData = new FormData(document.querySelector('form'));
+        console.log(formData);
+            break;
+        case "Changsheng":
+        console.log(`${city} in selectCitiesID() was selected`);
+        formData = new FormData(document.querySelector('form'));
+            break;
+        case "Mingelchaur":
+        console.log(`${city} in selectCitiesID() was selected`);
+        formData = new FormData(document.querySelector('form'));
+            break;
+        case "Bigoudine":
+        console.log(`${city} in selectCitiesID() was selected`);
+            break;
+        case "La Soledad":
+        console.log(`${city} in selectCitiesID() was selected`);
+            break;
+        case "Shengshan":
+    
+            break;
+        case "Nashville":
+        
+            break;
+        case "Rabat":
+        
+            break;
+        case "Hamilton":
+        
+            break;
+        case "El Llano":
+        
+            break;  
+        case "Longwu":
+        
+            break;
+        default:
+            break;
+    }
+}
 function selectCities(city){
     switch (city){
         case "Itupeva":
